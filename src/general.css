@@ -1,0 +1,9 @@
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 1rem rgb(121, 80, 242, 0.5);
+}
