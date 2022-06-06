@@ -1,0 +1,12 @@
+.repo-container {
+  padding: 4.8rem 3.6rem;
+}
+
+.error-message {
+  font-size: 3.2rem;
+  font-weight: 500;
+  margin-top: 4.8rem;
+  color: #fa5252;
+  letter-spacing: -0.75px;
+  text-align: center;
+}
