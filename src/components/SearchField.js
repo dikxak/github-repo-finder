@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 
 import Button from './ui/Button';
 
 import styles from './SearchField.module.css';
+import SearchContext from '../context/search-context';
 
 const SearchField = () => {
+  const [enteredQuery, setEnteredQuery] = useState('');
+  const searchFieldRef = useRef();
+  const searchQueryCtx = useContext(SearchContext);
+
+  useEffect(() => {
+    searchFieldRef.current.focus();
+  }, []);
+
+  const searchQueryChangeHandler = e => {
+    setEnteredQuery(e.target.value);
+  };
+
+  const querySubmitHandler = e => {
+    e.preventDefault();
+    searchQueryCtx.getRepoData(enteredQuery);
+
+    setEnteredQuery('');
+  };
+
   return (
-    <form className={`${styles['search']}`}>
+    <form onSubmit={querySubmitHandler} className={`${styles['search']}`}>
       <input
+        ref={searchFieldRef}
         className={styles['search-input']}
         type="search"
         placeholder="Enter repository name to search..."
+        onChange={searchQueryChangeHandler}
+        value={enteredQuery}
       />
-      <Button className={styles['btn--submit']} type="submit">
+      <Button
+        onSubmit={searchQueryCtx.querySubmitHandler}
+        className={styles['btn--submit']}
+        type="submit"
+      >
         Search
       </Button>
     </form>
