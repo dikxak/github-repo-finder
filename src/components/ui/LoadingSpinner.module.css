@@ -1,0 +1,30 @@
+.spinner-container {
+  max-width: 120rem;
+  height: 25rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+.spinner {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  border: 1rem solid #6741d9;
+  border-top: 1rem solid #e1d9f7;
+
+  animation: spin 1.5s linear infinite;
+
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
