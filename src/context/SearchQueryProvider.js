@@ -34,6 +34,7 @@ const SearchQueryProvider = props => {
 
       setIsLoading(false);
       setErrorMessage('');
+      setActivePageNum(pageNum);
       setRepositoriesData(data.items);
     } catch (err) {
       setErrorMessage(err.message);
