@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import SearchContext from './search-context';
+import SortContext from './sort-context';
 
 const SearchQueryProvider = props => {
   const [repositoriesData, setRepositoriesData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const sortCtx = useContext(SortContext);
 
   const getRepoData = async q => {
     try {
@@ -16,7 +19,11 @@ const SearchQueryProvider = props => {
       setIsLoading(true);
 
       const response = await fetch(
-        `https://api.github.com/search/repositories?q=${q}`
+        //&sort=stars
+        //&page=2&per_page=20
+        `https://api.github.com/search/repositories?q=${q}${
+          !sortCtx.sortOption ? '' : `&sort=${sortCtx.sortOption}`
+        }`
       );
       const data = await response.json();
 
