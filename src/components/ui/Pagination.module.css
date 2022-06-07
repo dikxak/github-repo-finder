@@ -1,0 +1,37 @@
+.pagination-list {
+  width: 100%;
+
+  list-style: none;
+
+  font-family: inherit;
+  font-size: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin-top: 2.4rem;
+
+  grid-column: 1 / -1;
+}
+
+.pagination-link:link,
+.patination-link:active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.2rem;
+  height: 3.2rem;
+
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+
+  border: 2px solid #6741d9;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: #e1d9f7;
+}

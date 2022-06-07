@@ -3,6 +3,7 @@ import SearchContext from '../context/search-context';
 
 import GithubInfo from './GithubInfo';
 import LoadingSpinner from './ui/LoadingSpinner';
+import Pagination from './ui/Pagination';
 
 import styles from './GithubInfos.module.css';
 
@@ -36,6 +37,13 @@ const GithubInfos = props => {
             );
           })
         : ''}
+      {searchCtx.repoData.length > 0 ? (
+        <Pagination
+          count={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
