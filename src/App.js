@@ -14,6 +14,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<SearchPage />} />
+          <Route path="/results" element={<SearchPage />} />
           <Route path="/results/page=:pageNum" element={<SearchPage />} />
         </Routes>
       </SearchQueryProvider>

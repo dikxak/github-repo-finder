@@ -2,6 +2,8 @@ import React, { useState, useContext, useRef, useEffect } from 'react';
 
 import Button from './ui/Button';
 
+import { useNavigate } from 'react-router-dom';
+
 import styles from './SearchField.module.css';
 import SearchContext from '../context/search-context';
 
@@ -9,6 +11,8 @@ const SearchField = () => {
   const [enteredQuery, setEnteredQuery] = useState('');
   const searchFieldRef = useRef();
   const searchQueryCtx = useContext(SearchContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     searchFieldRef.current.focus();
@@ -23,6 +27,7 @@ const SearchField = () => {
     searchQueryCtx.getRepoData(enteredQuery);
 
     setEnteredQuery('');
+    navigate('/results');
   };
 
   return (
