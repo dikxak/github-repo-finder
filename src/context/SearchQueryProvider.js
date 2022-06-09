@@ -4,6 +4,16 @@ import SearchContext from './search-context';
 import SortContext from './sort-context';
 
 const resultPerPage = 20;
+const timeoutSec = 10;
+
+// If API request took more than defined time, it will return message.
+const requestTimeout = function (sec) {
+  return new Promise((_, reject) => {
+    setTimeout(function () {
+      reject(new Error(`Requets took too long! Timeout after ${sec} seconds.`));
+    }, sec * 1000);
+  });
+};
 
 const SearchQueryProvider = props => {
   const [repositoriesData, setRepositoriesData] = useState([]);
@@ -23,20 +33,28 @@ const SearchQueryProvider = props => {
       setQuery(q);
       setIsLoading(true);
 
-      const response = await fetch(
-        `https://api.github.com/search/repositories?q=${q}&page=${pageNum}&per_page=${resultPerPage}${
-          !sortCtx.sortOption ? '' : `&sort=${sortCtx.sortOption}`
-        }`
-      );
+      const response = await Promise.race([
+        fetch(
+          `https://api.github.com/search/repositories?q=${q}&page=${pageNum}&per_page=${resultPerPage}${
+            !sortCtx.sortOption ? '' : `&sort=${sortCtx.sortOption}`
+          }`
+        ),
+        requestTimeout(timeoutSec),
+      ]);
+
+      if (!response.ok)
+        throw new Error('Something went wrong 😔. Please try again 🔁');
+
       const data = await response.json();
 
-      if (!data) throw new Error('Could not fetch data!');
+      if (!data || !data.items) throw new Error('Could not fetch data!');
 
       setIsLoading(false);
       setErrorMessage('');
       setActivePageNum(pageNum);
       setRepositoriesData(data.items);
     } catch (err) {
+      setIsLoading(false);
       setErrorMessage(err.message);
     }
   };

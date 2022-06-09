@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import SearchQueryProvider from './context/SearchQueryProvider';
 import SortOptionProvider from './context/SortOptionProvider';
@@ -10,7 +12,10 @@ const App = () => {
     <SortOptionProvider>
       <SearchQueryProvider>
         <Header />
-        <SearchPage />
+        <Routes>
+          <Route path="/" element={<SearchPage />} />
+          <Route path="/results/page=:pageNum" element={<SearchPage />} />
+        </Routes>
       </SearchQueryProvider>
     </SortOptionProvider>
   );
