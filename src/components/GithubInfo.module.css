@@ -4,6 +4,17 @@
   border-radius: 1rem;
 }
 
+.repo-card a:link,
+.repo-card a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.repo-card a:hover,
+.repo-card a:active {
+  text-decoration: underline;
+}
+
 .repo-title {
   font-size: 2.8rem;
   margin-bottom: 1.6rem;

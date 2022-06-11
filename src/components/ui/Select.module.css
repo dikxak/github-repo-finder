@@ -24,3 +24,9 @@
   font-family: inherit;
   font-size: 1.8rem;
 }
+
+@media (max-width: 47em) {
+  .control {
+    width: 90%;
+  }
+}

@@ -33,6 +33,7 @@ const GithubInfos = props => {
                 forks={data.forks}
                 description={capitalize(data.description)}
                 lastUpdatedDate={data.updated_at}
+                repoData={data}
               />
             );
           })

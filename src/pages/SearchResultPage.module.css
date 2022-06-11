@@ -1,0 +1,77 @@
+.repo-detail-container {
+  font-size: 160%;
+  padding: 4.8rem 0rem;
+  margin-top: 3.2rem;
+}
+
+.full-owner-name:link,
+.full-owner-name:visited,
+.full-repo-name:link,
+.full-repo-name:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.full-owner-name:hover,
+.full-owner-name:active,
+.full-repo-name:hover,
+.full-repo-name:active {
+  text-decoration: underline;
+}
+
+.repo-detail-container h2 {
+  font-size: 3.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.default-branch-name,
+.open-issues-num {
+  font-size: 1.8rem;
+  margin: 1.6rem 0;
+}
+
+.default-branch-name span {
+  background-color: #555;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+}
+
+.open-issues-num span {
+  background-color: #c92a2a;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+}
+
+.markdown {
+  background-color: #444;
+  color: #fff;
+  padding: 1.6rem 3.2rem;
+}
+
+.markdown h1 {
+  margin-bottom: 2.4rem;
+}
+
+.markdown h2 {
+  margin: 1.8rem 0rem;
+}
+
+.markdown p {
+  margin-bottom: 1.6rem;
+  line-height: 1.5;
+}
+
+.markdown ul,
+.markdown ol {
+  padding: 1.2rem;
+}
+
+.markdown li {
+  padding: 0.4rem 0rem;
+}
+
+.markdown a {
+  color: #fff;
+}

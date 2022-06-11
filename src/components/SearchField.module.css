@@ -28,3 +28,9 @@
 .btn--submit:hover {
   background-color: #7048e8;
 }
+
+@media (max-width: 47em) {
+  .search {
+    width: 100%;
+  }
+}
