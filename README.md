@@ -23,6 +23,6 @@ You can click on the heading of the displayed repository and it will take you to
 
 1. I have used [React](https://reactjs.org/) as JavaScript Framework.
    <br/>
-2. To get the news results, I have used [GitHub API](https://docs.github.com/en/rest)
+2. To get the repo results, I have used [GitHub API](https://docs.github.com/en/rest)
    <br/>
 3. For formatting time on the search result, I have used npm package called, [JavaScriptTimeAgo](https://www.npmjs.com/package/javascript-time-ago)
